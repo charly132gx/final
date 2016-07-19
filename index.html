@@ -36,12 +36,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	    if($("#imagen").attr("src")==""){
 		      alert("Antes de registrar el servicio debe tomar una fotografía del mismo ");
 	    }else{
-		      var nom=$("#Nombre").val();
+		      var nom=$("#obtNombre").val();
+			  var dir=$("#obtDireccion").val();
+			  var rfc=$("#obtRFC").val();
+			  var tel=$("#obtTel").val();
+			  var clasif=$("#obtClassif").val();
+			  
 		      var lat=$("#obtLatitud").val();
 		      var lon=$("#obtLongitud").val();
 		      $.ajax({
 		          type:"POST",
-		          url:"guardar.php",
+		          url:"http://charlyxaar.esy.es/guardar.php",
 		          data:"nombre="+nom+"&dir="+dir+"&Rfc="+rfc+"&tel="+tel+"&classif="+clasif+"&lat="+lat+"&long="+lon,
 		          success: guardandoServicios
 		      });
@@ -67,7 +72,7 @@ function uploadPhoto(foto) {
 	options.params = params;
 
 	var ft = new FileTransfer();
-	ft.upload(foto,"http://iscmoviles.890m.com/r/subirArchivo.php",function(r){
+	ft.upload(foto,"http://charlyxaar.esy.es/subirArchivo.php",function(r){
 		navigator.notification.confirm("El archivo: "+r.response,null, "Notificacion");
 	}, function(err){
 		navigator.notification.alert("Error: "+err.code+" detalle: "+err.response,null, "Error de Envío");
@@ -139,6 +144,13 @@ text-align:center;
 	<h1>Registro de Servicios</h1>
       </div>
       <div data-role="content" >
+      
+       <input type="text" id="obtNombre" placeholder="Nombre" />
+       <input type="text" id="obtDireccion" placeholder="Direccion" />
+       <input type="text" id="obtRFC" placeholder="RFC" />
+       <input type="text" id="obtTel" placeholder="Telefono" />
+       <input type="text" id="obtClassif" placeholder="Clasificacion" />
+       
     <input type="button" id="btnTomarFoto" value="Tomar Foto" >
 	  <div id="regFoto"></div>
     <input type="button" id="obtenercord" value="Obtener coordenadas" />
