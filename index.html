@@ -41,12 +41,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			  var rfc=$("#obtRFC").val();
 			  var tel=$("#obtTel").val();
 			  var clasif=$("#obtClassif").val();
-			  
+
 		      var lat=$("#obtLatitud").val();
 		      var lon=$("#obtLongitud").val();
 		      $.ajax({
 		          type:"POST",
-		          url:"http://charlyxaar.esy.es/guardar.php",
+              url:"http://charlyxaar.esy.es/guardar.php",
+		          /*url:"guardar.php",*/
 		          data:"nombre="+nom+"&dir="+dir+"&Rfc="+rfc+"&tel="+tel+"&classif="+clasif+"&lat="+lat+"&long="+lon,
 		          success: guardandoServicios
 		      });
@@ -135,8 +136,8 @@ text-align:center;
       <div data-role="footer" data-position="fixed" style="text-align:center;">
 	<div data-role="controlgroup" data-type="horizontal">
 	<a href="#Acercade" class="ui-btn ui-icon-home ui-btn-icon-left">Acerca de ..</a>
-	<font color="Red" align="center">
-    Carlos Alfredo Morales Pérez
+	font color="blue" align="center">
+    Carlos Alfredo Morales perez
 	</div>
       </div>
 </div>
@@ -146,13 +147,13 @@ text-align:center;
 	<h1>Registro de Servicios</h1>
       </div>
       <div data-role="content" >
-      
+
        <input type="text" id="obtNombre" placeholder="Nombre" />
        <input type="text" id="obtDireccion" placeholder="Direccion" />
        <input type="text" id="obtRFC" placeholder="RFC" />
        <input type="text" id="obtTel" placeholder="Telefono" />
        <input type="text" id="obtClassif" placeholder="Clasificacion" />
-       
+
     <input type="button" id="btnTomarFoto" value="Tomar Foto" >
 	  <div id="regFoto"></div>
     <input type="button" id="obtenercord" value="Obtener coordenadas" />
@@ -163,8 +164,8 @@ text-align:center;
     <div data-role="footer" data-position="fixed" style="text-align:center;">
 	     <div data-role="controlgroup" data-type="horizontal">
 	        <a href="#Principal" class="ui-btn ui-icon-home ui-btn-icon-left">Regresar</a>
-	        <font color="blue" align="center">
-    Carlos Alfredo Morales Pérez
+	        font color="blue" align="center">
+    Carlos Alfredo Morales Pérez 
 	    </div>
     </div>
 </div>
